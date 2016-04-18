@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BEAAB631CC456DA00326B15 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB621CC456DA00326B15 /* main.c */; };
+		3BEAAB711CC4576300326B15 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6C1CC4576300326B15 /* Makefile */; };
+		3BEAAB721CC4576300326B15 /* printDebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6D1CC4576300326B15 /* printDebug.c */; };
+		3BEAAB731CC4576300326B15 /* printError.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6E1CC4576300326B15 /* printError.c */; };
+		3BEAAB741CC4576300326B15 /* testLabelTable.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB701CC4576300326B15 /* testLabelTable.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,14 @@
 
 /* Begin PBXFileReference section */
 		3BEAAB5F1CC456DA00326B15 /* PP1b */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PP1b; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BEAAB621CC456DA00326B15 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		3BEAAB691CC4576300326B15 /* assembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assembler.h; sourceTree = "<group>"; };
+		3BEAAB6A1CC4576300326B15 /* LabelTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LabelTable.c; sourceTree = "<group>"; };
+		3BEAAB6B1CC4576300326B15 /* LabelTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelTable.h; sourceTree = "<group>"; };
+		3BEAAB6C1CC4576300326B15 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		3BEAAB6D1CC4576300326B15 /* printDebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printDebug.c; sourceTree = "<group>"; };
+		3BEAAB6E1CC4576300326B15 /* printError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printError.c; sourceTree = "<group>"; };
+		3BEAAB6F1CC4576300326B15 /* printFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printFuncs.h; sourceTree = "<group>"; };
+		3BEAAB701CC4576300326B15 /* testLabelTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = testLabelTable.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +67,14 @@
 		3BEAAB611CC456DA00326B15 /* PP1b */ = {
 			isa = PBXGroup;
 			children = (
-				3BEAAB621CC456DA00326B15 /* main.c */,
+				3BEAAB691CC4576300326B15 /* assembler.h */,
+				3BEAAB6A1CC4576300326B15 /* LabelTable.c */,
+				3BEAAB6B1CC4576300326B15 /* LabelTable.h */,
+				3BEAAB6C1CC4576300326B15 /* Makefile */,
+				3BEAAB6D1CC4576300326B15 /* printDebug.c */,
+				3BEAAB6E1CC4576300326B15 /* printError.c */,
+				3BEAAB6F1CC4576300326B15 /* printFuncs.h */,
+				3BEAAB701CC4576300326B15 /* testLabelTable.c */,
 			);
 			path = PP1b;
 			sourceTree = "<group>";
@@ -118,7 +135,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BEAAB631CC456DA00326B15 /* main.c in Sources */,
+				3BEAAB731CC4576300326B15 /* printError.c in Sources */,
+				3BEAAB741CC4576300326B15 /* testLabelTable.c in Sources */,
+				3BEAAB721CC4576300326B15 /* printDebug.c in Sources */,
+				3BEAAB711CC4576300326B15 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +229,7 @@
 		3BEAAB671CC456DA00326B15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +237,7 @@
 		3BEAAB681CC456DA00326B15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -239,6 +261,7 @@
 				3BEAAB681CC456DA00326B15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
