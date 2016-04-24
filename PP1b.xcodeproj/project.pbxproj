@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BEAAB711CC4576300326B15 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6C1CC4576300326B15 /* Makefile */; };
+		3B0F9C851CC565C000998BCD /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F9C841CC565C000998BCD /* Makefile */; };
+		3B0F9C861CC5665800998BCD /* assembler.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB691CC4576300326B15 /* assembler.h */; };
+		3B0F9C871CC5665B00998BCD /* LabelTable.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6A1CC4576300326B15 /* LabelTable.c */; };
+		3B0F9C881CC5665E00998BCD /* LabelTable.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6B1CC4576300326B15 /* LabelTable.h */; };
+		3B0F9C891CC5666000998BCD /* printFuncs.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6F1CC4576300326B15 /* printFuncs.h */; };
 		3BEAAB721CC4576300326B15 /* printDebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6D1CC4576300326B15 /* printDebug.c */; };
 		3BEAAB731CC4576300326B15 /* printError.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB6E1CC4576300326B15 /* printError.c */; };
 		3BEAAB741CC4576300326B15 /* testLabelTable.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEAAB701CC4576300326B15 /* testLabelTable.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3B0F9C7B1CC5648800998BCD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		3BEAAB5D1CC456D900326B15 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -26,11 +39,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B0F9C7D1CC5648800998BCD /* Makefile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Makefile; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0F9C841CC565C000998BCD /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		3BEAAB5F1CC456DA00326B15 /* PP1b */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PP1b; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEAAB691CC4576300326B15 /* assembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assembler.h; sourceTree = "<group>"; };
 		3BEAAB6A1CC4576300326B15 /* LabelTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LabelTable.c; sourceTree = "<group>"; };
 		3BEAAB6B1CC4576300326B15 /* LabelTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelTable.h; sourceTree = "<group>"; };
-		3BEAAB6C1CC4576300326B15 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		3BEAAB6D1CC4576300326B15 /* printDebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printDebug.c; sourceTree = "<group>"; };
 		3BEAAB6E1CC4576300326B15 /* printError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printError.c; sourceTree = "<group>"; };
 		3BEAAB6F1CC4576300326B15 /* printFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printFuncs.h; sourceTree = "<group>"; };
@@ -38,6 +52,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B0F9C7A1CC5648800998BCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BEAAB5C1CC456D900326B15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -60,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				3BEAAB5F1CC456DA00326B15 /* PP1b */,
+				3B0F9C7D1CC5648800998BCD /* Makefile */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,10 +89,10 @@
 		3BEAAB611CC456DA00326B15 /* PP1b */ = {
 			isa = PBXGroup;
 			children = (
+				3B0F9C841CC565C000998BCD /* Makefile */,
 				3BEAAB691CC4576300326B15 /* assembler.h */,
 				3BEAAB6A1CC4576300326B15 /* LabelTable.c */,
 				3BEAAB6B1CC4576300326B15 /* LabelTable.h */,
-				3BEAAB6C1CC4576300326B15 /* Makefile */,
 				3BEAAB6D1CC4576300326B15 /* printDebug.c */,
 				3BEAAB6E1CC4576300326B15 /* printError.c */,
 				3BEAAB6F1CC4576300326B15 /* printFuncs.h */,
@@ -82,6 +104,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B0F9C7C1CC5648800998BCD /* Makefile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B0F9C811CC5648800998BCD /* Build configuration list for PBXNativeTarget "Makefile" */;
+			buildPhases = (
+				3B0F9C791CC5648800998BCD /* Sources */,
+				3B0F9C7A1CC5648800998BCD /* Frameworks */,
+				3B0F9C7B1CC5648800998BCD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Makefile;
+			productName = Makefile;
+			productReference = 3B0F9C7D1CC5648800998BCD /* Makefile */;
+			productType = "com.apple.product-type.tool";
+		};
 		3BEAAB5E1CC456D900326B15 /* PP1b */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BEAAB661CC456DA00326B15 /* Build configuration list for PBXNativeTarget "PP1b" */;
@@ -108,6 +147,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Colin Klein";
 				TargetAttributes = {
+					3B0F9C7C1CC5648800998BCD = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					3BEAAB5E1CC456D900326B15 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -126,25 +168,51 @@
 			projectRoot = "";
 			targets = (
 				3BEAAB5E1CC456D900326B15 /* PP1b */,
+				3B0F9C7C1CC5648800998BCD /* Makefile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B0F9C791CC5648800998BCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BEAAB5B1CC456D900326B15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0F9C891CC5666000998BCD /* printFuncs.h in Sources */,
+				3B0F9C881CC5665E00998BCD /* LabelTable.h in Sources */,
+				3B0F9C871CC5665B00998BCD /* LabelTable.c in Sources */,
+				3B0F9C861CC5665800998BCD /* assembler.h in Sources */,
 				3BEAAB731CC4576300326B15 /* printError.c in Sources */,
 				3BEAAB741CC4576300326B15 /* testLabelTable.c in Sources */,
+				3B0F9C851CC565C000998BCD /* Makefile in Sources */,
 				3BEAAB721CC4576300326B15 /* printDebug.c in Sources */,
-				3BEAAB711CC4576300326B15 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3B0F9C821CC5648800998BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3B0F9C831CC5648800998BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3BEAAB641CC456DA00326B15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -245,6 +313,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B0F9C811CC5648800998BCD /* Build configuration list for PBXNativeTarget "Makefile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B0F9C821CC5648800998BCD /* Debug */,
+				3B0F9C831CC5648800998BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3BEAAB5A1CC456D900326B15 /* Build configuration list for PBXProject "PP1b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

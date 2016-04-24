@@ -12,7 +12,10 @@
  *   Modified:  4/19/2013    Modernized call to fprintf for errors.
  *   Modified:  5/25/2015    Updated to use printError function.
  *
- *   Modified: 4/17/2016
+ *   Modified: 4/17/2016    Implemented printLabels function
+ *   Modified: 4/18/2016    Implemented findLabel
+ *   Modified: 4/24/2016    Created and implemented verifyLabelExists function
+ *                          Implemented addLabel, tableInit
  *
  * WARNING: These functions are incomplete!!!!!
 */
@@ -32,11 +35,17 @@ void tableInit (LabelTable * table)
    *       are no label entries in it.
    */
 {
-        /* verify that current table exists */
-        if ( ! verifyTableExists (table) )
-            return;           /* fatal error: table doesn't exist */
+    /* verify that current table exists */
+    if ( ! verifyTableExists (table) )
+        return;           /* fatal error: table doesn't exist */
 
-        /* CODE MISSING ! */
+    table->capacity = 0;
+    table-> nbrLabels = 0;
+    table->entries = 0;
+    //if (table-> entries != NULL) {
+    //    printf("ERROR: Existing table entries found for new table");
+    //}
+    
 }
 
 void printLabels (LabelTable * table)
@@ -45,26 +54,26 @@ void printLabels (LabelTable * table)
    *      output.
    */
 {
-        int i;
+    int i;
     
-        /* If the table is null, print that */
-        if ( table == NULL )
-            (void) printf ("Label Table is a NULL pointer.\n");
-        else
-        {
-            /* Prints the number of labels */
-            (void) printf ("There are %d labels in the table:\n",
-                                    table->nbrLabels);
+    /* If the table is null, print that */
+    if ( table == NULL )
+        (void) printf ("Label Table is a NULL pointer.\n");
+    else
+    {
+        /* Prints the number of labels */
+        (void) printf ("There are %d labels in the table:\n",
+                                table->nbrLabels);
 
-            /* Iterate through table and entries. If an entry has
-                a label, label and address are printed */
-            for (i = 0; i < table->nbrLabels; i++) {
-                if (table->entries[i].label != NULL) {
-                    printf("Label %s, address %d:\n", table->entries[i].label,
-                           table->entries[i].address);
-                }
+        /* Iterate through table and entries. If an entry has
+            a label, label and address are printed */
+        for (i = 0; i < table->nbrLabels; i++) {
+            if (table->entries[i].label != NULL) {
+                printf("Label: %s, address: %d\n", table->entries[i].label,
+                        table->entries[i].address);
             }
         }
+    }
 }
 
 int findLabel (LabelTable * table, char * label)
@@ -72,8 +81,17 @@ int findLabel (LabelTable * table, char * label)
    *      not in the table or table doesn't exist
    */
 {
-        /* CODE MISSING ! */
-        return -1;
+    int i;
+    
+    // Iterate through the table
+    // Return address of current label IF equal to label in question
+    for (i = 0; i < table->capacity; i++) {
+        if ((table->entries[i].label) == label) {
+            return table->entries[i].address;
+        }
+    }
+    // If label cannot be found, function fails
+    return -1;
 }
 
 int addLabel (LabelTable * table, char * label, int PC)
@@ -85,42 +103,51 @@ int addLabel (LabelTable * table, char * label, int PC)
    *      or table doesn't exist.
    */
 {
-        char * labelDuplicate;
+    char * labelDuplicate;
 
-        /* verify that current table exists */
-        if ( ! verifyTableExists (table) )
-            return 0;           /* fatal error: table doesn't exist */
+    /* verify that current table exists */
+    if ( ! verifyTableExists (table) )
+        return 0;           /* fatal error: table doesn't exist */
 
-        /* Was the label already in the table? */
-        if ( 0 == 0 )  /* REAL CODE MISSING ! */
-        {
-            /* This is an error (ERROR1), but not a fatal one.
-             * Report error; don't add the label to the table again. 
-             */
-            /* CODE MISSING ! */
+    /* Was the label already in the table? */
+    if (verifyLabelExists(table, label))
+    {
+        /* This is an error (ERROR1), but not a fatal one.
+         * Report error; don't add the label to the table again.
+         */
+        printf("\n%s", ERROR1);
+        return 0;
+    }
+
+    /* Create a dynamically allocated version of label that will persist. */
+    /*   NOTE: on some machines you may need to make this _strdup !  */
+    if ((labelDuplicate = strdup (label)) == NULL)
+    {
+        printError ("%s", ERROR2);
+        return 0;           /* fatal error: couldn't allocate memory */
+    }
+
+    /* Resize the table if necessary. */
+    if ( table->nbrLabels >= table->capacity )
+    {
+        if (! tableResize(table, (table->nbrLabels + 1))) {
+            printf("ERROR: Table resizing encountered an error!");
         }
+        /* Tip:  Choose a new size that will work even if current
+         *       capacity is 0.
+         */
+    }
 
-        /* Create a dynamically allocated version of label that will persist. */
-        /*   NOTE: on some machines you may need to make this _strdup !  */
-        if ((labelDuplicate = strdup (label)) == NULL)
-        {
-            printError ("%s", ERROR2);
-            return 0;           /* fatal error: couldn't allocate memory */
-        }
+    // Create a label entry with given parameters
+    LabelEntry newEntry;
+    newEntry.label = label;
+    newEntry.address = PC;
+    /* Add the entry to the table */
+    table->entries[table->nbrLabels] = newEntry;
+    // Increment nbrLabels
+    table->nbrLabels ++;
 
-        /* Resize the table if necessary. */
-        if ( table->nbrLabels >= table->capacity )
-        {
-            /* CODE MISSING ! */
-            /* Tip:  Choose a new size that will work even if current
-             *       capacity is 0.
-             */
-        }
-
-        /* Add the label */
-        /* CODE MISSING ! */
-
-        return 1;               /* everything worked great! */
+    return 1;               /* everything worked great! */
 }
 
 int tableResize (LabelTable * table, int newSize)
@@ -177,4 +204,22 @@ static int verifyTableExists(LabelTable * table)
         }
 
         return 1;
+}
+/*
+ * Returns true (1) if label exists in table.
+ * Returns false (0) otherwise.
+ */
+int verifyLabelExists(LabelTable * table, char * label) {
+    
+    int i;
+    
+    // Iterate through the table
+    // Return 1 IF equal to label in question
+    for (i = 0; i < table->capacity; i++) {
+        if ((table->entries[i].label) == label) {
+            return 1;
+        }
+    }
+    // If label cannot be found, function fails
+    return 0;
 }
